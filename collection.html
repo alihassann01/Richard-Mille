@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections | Luxury Watches . RICHARD</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            position: relative;
+            padding: 0;
+            overflow-x: scroll;
+            overflow-y: auto;
+            min-height: 100vh;
+            background-color: black;
+        }
+
+        .main-content {
+            height: auto;
+            overflow: visible;
+            padding: 20px;
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            will-change: transform;
+        }
+
+        .image-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .image-row {
+            display: grid;
+            grid-template-columns: repeat(4, 187.5px);
+            gap: 120px;
+            margin-bottom: 40px;
+            justify-content: center;
+            position: static;
+        }
+
+        .image-row img {
+            position: relative;
+            width: 187.5px; 
+            height: auto; /* Maintain aspect ratio */
+            margin: 1px; 
+        }
+
+        .image-wrapper {
+            position: static;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .image-row img,
+        .image-row:nth-child(2) img,
+        .image-row:nth-child(3) img,
+        .image-row:nth-child(4) img,
+        .image-row:nth-child(5) img {
+            position: static;
+            width: 187.5px;
+            height: auto;
+            margin: 0;
+            top: auto;
+            left: auto;
+        }
+        .image-row:nth-child(2),
+        .image-row:nth-child(2) img:nth-child(1),
+        .image-row:nth-child(2) img:nth-child(2),
+        .image-row:nth-child(2) img:nth-child(3),
+        .image-row:nth-child(2) img:nth-child(4) {
+            position: static;
+            top: auto;
+            left: auto;
+        }
+
+        .image-caption {
+            position: static;
+            left: auto;  
+            transform: none; 
+            color: white;
+            font-family: "High Tower Text", serif;
+            font-size: 12px;
+            text-align: center;
+            width: 187.5px;
+            margin-top: 8px;
+            opacity: 1;    
+            transition: none; 
+        }
+        .image-wrapper:hover .image-caption {
+            opacity: 1;
+        }
+
+        .image-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .image-caption {
+            position: static;  
+            left: auto;       
+            transform: none;
+            color: white;
+            font-family:'Courier New', Courier, monospace;
+            font-size: 16px;
+            text-align: center;
+            width: 187.5px;
+            margin-top: 8px;
+            opacity: 1;     
+            transition: none;
+        }
+        .image-wrapper:hover .image-caption {
+            opacity: 1;
+        }
+         .collections-icon {
+            transition: transform 0.8s ease-in-out; 
+        }
+
+        .collections-icon:hover {
+            transform: rotate(360deg); /* Spin on hover */
+        }
+
+        /* Ensure button allows hover */
+        .button {
+            position: relative;
+            display: inline-block;
+        }
+
+        .button[aria-label="Collections"]:hover .collections-icon {
+            transform: rotate(360deg); /* Spin the icon on hover over the button */
+        }
+        .button[aria-label="Collections"] {
+            text-decoration: none; 
+        }
+
+        .button[aria-label="Collections"]:link,
+        .button[aria-label="Collections"]:visited,
+        .button[aria-label="Collections"]:hover,
+        .button[aria-label="Collections"]:active {
+            text-decoration: none; /* Ensure no underline in any state */
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <div class="main-content">
+        <h1>Welcome to the Collections Page</h1>
+        <p>Explore our diverse range of collections...</p>
+        <div class="image-container">
+            <div class="image-row">
+                <div class="image-wrapper">
+                    <img src="https://media.richardmille.com/wp-content/uploads/2022/09/21141757/RM-88view.png?dpr=2&width=187.5" alt="Image 1">
+                    <div class="image-caption">RM 88 AUTOMATIC TOURBILLON SMILEY</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="https://bo.richardmille.com/wp-content/uploads/2025/04/RM-75-01.png?dpr=2&width=187.5" alt="Image 2">
+                    <div class="image-caption">RM 75-01 AUTOMATIC WINDING</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="https://media.richardmille.com/wp-content/uploads/2022/07/05120658/UPfpng2.png?dpr=2&width=187.5" alt="Image 3">
+                    <div class="image-caption">RM UP-01 FERRARI</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="https://media.richardmille.com/wp-content/uploads/2025/02/19202359/74-02QTPT.png?dpr=2&width=187.5" alt="Image 4">
+                    <div class="image-caption">RM 74-02 AUTOMATIC TOURBILLON</div>
+                </div>
+            </div>
+            <div class="image-row">
+                <div class="image-wrapper">
+                    <img src="https://media.richardmille.com/wp-content/uploads/2021/05/20121530/71-02off.2png.png?dpr=2&width=187.5" alt="Image 5">
+                    <div class="image-caption">RM 71-02 AUTOMATIC TALISMAN</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="https://media.richardmille.com/wp-content/uploads/2020/09/25172638/RM72-0122.png?dpr=2&width=187.5" alt="Image 6">
+                    <div class="image-caption">RM 72-01 LIFESTYLE</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="https://media.richardmille.com/wp-content/uploads/2019/01/21132511/RM-67-01_front.png?dpr=2&width=187.5" alt="Image 7">
+                    <div class="image-caption">RM 67-01 AUTOMATIC</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="https://media.richardmille.com/wp-content/uploads/2019/01/18182902/RM-0322UE_.png?dpr=2&width=187.5" alt="Image 8">
+                    <div class="image-caption">RM 0322 AUTOMATIC</div>
+                </div>
+            </div>
+            <div class="image-row">
+                <div class="image-wrapper">
+                    <img src="https://media.richardmille.com/wp-content/uploads/2023/01/05153445/RM-66view.png?dpr=2&width=187.5" alt="Image 9">
+                    <div class="image-caption">RM 66 AUTOMATIC</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="https://media.richardmille.com/wp-content/uploads/2020/12/08120017/65-01-vignetteV2.png?dpr=2&width=187.5" alt="Image 10">
+                    <div class="image-caption">RM 65-01 AUTOMATIC</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="https://media.richardmille.com/wp-content/uploads/2021/12/05123903/RM-35-03-2-.png?dpr=2&width=187.5" alt="Image 11">
+                    <div class="image-caption">RM 35-03 AUTOMATIC</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="https://media.richardmille.com/wp-content/uploads/2025/07/08142458/RM-33-03_front.png?dpr=2&width=187.5" alt="Image 12">
+                    <div class="image-caption">RM 33-03 AUTOMATIC</div>
+                </div>
+            </div>
+            <div class="image-row">
+                <div class="image-wrapper">
+                    <img src="https://media.richardmille.com/wp-content/uploads/2024/03/18105319/RM07-0124F.png?dpr=2&width=187.5" alt="Image 13">
+                    <div class="image-caption">RM 07-01 AUTOMATIC</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="https://media.richardmille.com/wp-content/uploads/2023/09/07122446/RM07-01cdc2.png?dpr=2&width=187.5" alt="Image 14">
+                    <div class="image-caption">RM 07-01 CDC</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="https://media.richardmille.com/wp-content/uploads/2019/01/23170707/richard-mille-rm-037-automatic-17826.png?dpr=2&width=187.5" alt="Image 15">
+                    <div class="image-caption">RM 037 AUTOMATIC</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="https://media.richardmille.com/wp-content/uploads/2019/01/23171254/richard-mille-mechanical-fountain-pen-14315.png?dpr=2&width=187.5" alt="Image 16">
+                    <div class="image-caption">RM FOUNTAIN PEN</div>
+                </div>
+            </div>
+            <div class="image-row">
+                <div class="image-wrapper">
+                    <img src="https://media.richardmille.com/wp-content/uploads/2023/07/27125834/RM30-01.png?dpr=2&width=187.5" alt="Image 17">
+                    <div class="image-caption">RM 30-01 AUTOMATIC</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="https://media.richardmille.com/wp-content/uploads/2024/10/19101556/65-01-wtvignette.png?dpr=2&width=187.5" alt="Image 18">
+                    <div class="image-caption">RM 65-01 WTVIGNETTE</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="https://media.richardmille.com/wp-content/uploads/2023/02/14114508/RM07-04.png?dpr=2&width=187.5" alt="Image 19">
+                    <div class="image-caption">RM 07-04 AUTOMATIC</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="https://media.richardmille.com/wp-content/uploads/2019/01/11193419/RM-67-02-italy.png?dpr=2&width=187.5" alt="Image 20">
+                    <div class="image-caption">RM 67-02 ITALY</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer-placeholder"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load header and footer
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    // Force scroll to top after header loads
+                    window.scrollTo(0, 0);
+                })
+                .catch(error => console.error('Error loading header:', error));
+
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading footer:', error));
+
+            // Clear any auto-scroll intervals
+            for (let i = 1; i < 99999; i++) {
+                window.clearInterval(i);
+            }
+
+            // Prevent default scroll behavior
+            if (history.scrollRestoration) {
+                history.scrollRestoration = 'manual';
+            }
+
+            // Reset scroll position
+            window.scrollTo(0, 0);
+
+            // Handle manual scrolling
+            let lastScrollTime = 0;
+            const scrollDelay = 100;
+
+            window.addEventListener('wheel', function(event) {
+                const currentTime = new Date().getTime();
+                
+                if (currentTime - lastScrollTime > scrollDelay) {
+                    window.scrollBy({
+                        top: event.deltaY,
+                        behavior: 'smooth'
+                    });
+                    
+                    lastScrollTime = currentTime;
+                }
+                
+                event.preventDefault();
+            }, { passive: false });
+        });
+    </script>
+</body>
+</html>

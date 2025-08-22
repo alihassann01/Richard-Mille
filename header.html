@@ -1,0 +1,60 @@
+<body>
+<div class="hamburger-menu" onclick="toggleMenu(this)">
+    <div class="line line1"></div>
+    <div class="line line2"></div>
+</div>
+
+<div class="side-menu">
+    <ul>
+        <li><a href="index.html">THE BRAND</a></li>
+        <li><a href="#">SAVOIR-FAIRE</a></li>
+        <li><a href="collection.html">COLLECTIONS</a></li>
+        <li><a href="#">FRIENDS AND PARTNERS</a></li>
+        <li><a href="#">STORE LOCATOR</a></li>
+        <li><a href="#">EVENTS</a></li>
+    </ul>
+</div>
+
+<div class="blur-overlay"></div>
+<div class="overlay"></div>
+<div class="navbar clickable" onclick="handleClick(this); toggleMenu(document.querySelector('.hamburger-menu'))">MENU</div>
+<div class="title">RICHARD MILLE</div>
+<div class="top-right-buttons">
+    <button class="button" onclick="handleClick(this)">
+        <span class="button-text">SEARCH</span>
+    </button>
+    <div class="language-container">
+        <button class="button language-button" onclick="toggleLanguageDropdown(event)">
+            <span class="button-text">ENGLISH</span>
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 9l6 6 6-6"></path>
+            </svg>
+        </button>
+        <div class="language-dropdown">
+            <button class="lang-button">Français</button>
+            <button class="lang-button">Español</button>
+            <button class="lang-button">Русский</button>
+            <button class="lang-button">العربية</button>
+            <button class="lang-button">日本語</button>
+            <button class="lang-button">中文</button>
+        </div>
+    </div>
+    <a href="collection.html" class="button" aria-label="Collections">
+        <span class="button-text">COLLECTIONS</span>
+        <svg class="collections-icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" style="margin-left: 8px;" aria-hidden="true" focusable="false">
+            <g id="boundary-dots">
+                <circle cx="12" cy="3.8" r="1.2" fill="currentColor" />
+                <circle cx="17.07" cy="6.93" r="1.2" fill="currentColor" />
+                <circle cx="19.5" cy="12" r="1.2" fill="currentColor" />
+                <circle cx="17.07" cy="17.07" r="1.2" fill="currentColor" />
+                <circle cx="12" cy="20" r="1.2" fill="currentColor" />
+                <circle cx="6.93" cy="17.07" r="1.2" fill="currentColor" />
+                <circle cx="4.5" cy="12" r="1.2" fill="currentColor" />
+                <circle cx="6.93" cy="6.93" r="1.2" fill="currentColor" />
+            </g>
+            <circle cx="12" cy="12" r="1.2" fill="currentColor" />
+        </svg>
+    </a>
+    </button>
+</div>
+</body>

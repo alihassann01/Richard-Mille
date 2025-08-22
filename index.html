@@ -1,1210 +1,169 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Richard Mille | A racing machine on the wrist</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 
     <style>
-        
-        /* Reset styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Fullscreen video containers */
-        .video-container {
-            width: 100%;
-            height: 100vh; /* Full viewport height */
-            position: relative;
-        }
-
-        .video-container::after {
-            content: '';
-            position: absolute;
+        /* Black screen overlay */
+        .black-screen {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
-            pointer-events: none; /* Ensure it doesn't interfere with interactions */
-            z-index: 1;
-        }
-
-        .video-container video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Cover the entire container without distortion */
-            position: relative;
-            z-index: 0;
-        }
-
-        .video-container {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-}
-
-.video-overlay {
-    position: absolute;
-    top: 350px;
-    left: 30px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: left;
-    align-items: left;
-    color: white; /* Change color based on your preference */
-    font-size: 50px; /* Adjust size as needed */
-    font-family:Arial, Helvetica, sans-serif;
-    z-index: 2; /* Above the video */
-    pointer-events: none; /* Allows clicks to pass through to the video */
-    
-}
-
-/* You may need to adjust the font styles to match the overall design */
-.video-overlay p {
-    /* margin: 0; */
-    left:50px;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0); /* Semi-transparent background for better visibility */
-    border-radius: 10px; /* Optional styling */
-}
-
-/* Styles for the first overlay */
-.overlay1 {                         
-    top: 340px;
-    left: 50px;
-    font-size: 44px;
-    background-color: rgba(0, 0, 0, 0);
-}
-.overlay1 h2{
-    position:absolute;
-    top: 100px;
-    left: 7px;
-    font-size:24px;
-    font-family:'Times New Roman', Times, serif ;
-    background-color: rgba(0, 0, 0, 0);
-}
-
-/* Styles for the second overlay */
-.overlay2 {
-    top: 280px;
-    left: 44px;
-    font-size: 50px;
-    background-color: rgba(0, 0, 0, 0);
-}
-.overlay2 h2{
-    position:absolute;
-    top: 210px;
-    left: 7px;
-    font-size:24px;
-    font-family:'Times New Roman', Times, serif ;
-    background-color: rgba(0, 0, 0, 0);
-}
-
-.overlay2 h3{
-    position:absolute;
-    top: -70px;
-    left: 7px;
-    font-size:24px;
-    font-family:'Times New Roman', Times, serif ;
-    background-color: rgba(0, 0, 0, 0);
-}
-
-/* Styles for the third overlay */
-.overlay3 {
-    top: 380px;
-    left: 50px;
-    font-size: 44px;
-    background-color: rgba(0, 0, 0, 0);
-}
-.overlay3 h2{
-    position:absolute;
-    top: 100px;
-    left: 7px;
-    font-size:24px;
-    font-family:'Times New Roman', Times, serif ;
-    background-color: rgba(0, 0, 0, 0);
-}
-
-.overlay3 h3{
-    position:absolute;
-    top: -65px;
-    left: 7px;
-    font-size:24px;
-    font-family:'Times New Roman', Times, serif ;
-    background-color: rgba(0, 0, 0, 0);
-}
-
-/* Styles for the fourth overlay */
-.overlay4 {
-    top: 280px;
-    left: 50px;
-    font-size: 44px;
-    background-color: rgba(0, 0, 0, 0);
-}
-.overlay4 h2{
-    position:absolute;
-    top: 200px;
-    left: 7px;
-    font-size:24px;
-    font-family:'Times New Roman', Times, serif ;
-    background-color: rgba(0, 0, 0, 0);
-}
-
-.overlay4 h3{
-    position:absolute;
-    top: -70px;
-    left: 7px;
-    font-size:24px;
-    font-family:'Times New Roman', Times, serif ;
-    background-color: rgba(0, 0, 0, 0);
-}
-
-
-/* Styles for the fifth overlay */
-.overlay5 {
-    top: 340px;
-    left: 50px;
-    font-size: 44px;
-    background-color: rgba(0, 0, 0, 0);
-}
-.overlay5 h2{
-    position:absolute;
-    top: 100px;
-    left: 7px;
-    font-size:24px;
-    font-family:'Times New Roman', Times, serif ;
-    background-color: rgba(0, 0, 0, 0);
-}
-
-.overlay5 h3{
-    position:absolute;
-    top: -70px;
-    left: 7px;
-    font-size:24px;
-    font-family:'Times New Roman', Times, serif ;
-    background-color: rgba(0, 0, 0, 0);
-}
-
-
-/* Styles for the sixth overlay */
-.overlay6 {
-    top: 280px;
-    left: 50px;
-    font-size: 44px;
-    background-color: rgba(0, 0, 0, 0);
-}
-.overlay6 h2{
-    position:absolute;
-    top: 200px;
-    left: 7px;
-    font-size:24px;
-    font-family:'Times New Roman', Times, serif ;
-    background-color: rgba(0, 0, 0, 0);
-}
-
-.overlay6 h3{
-    position:absolute;
-    top: -70px;
-    left: 7px;
-    font-size:24px;
-    font-family:'Times New Roman', Times, serif ;
-    background-color: rgba(0, 0, 0, 0);
-}
-
-.arrow-circle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 57px; /* Circle size */
-    height: 57px; /* Circle size */
-    background-color: rgba(0, 0, 0, 0.5); /* White background */
-    border-radius: 50%; /* Round shape */
-    position: absolute;
-    top: 170px; /* Adjust as needed */
-    left: 35px; /* Center horizontally */
-    transform: translateX(-50%); /* Precise centering */
-    z-index: 3;
-}
-
-.overlay2 .arrow-circle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 57px; /* Circle size */
-    height: 57px; /* Circle size */
-    background-color: rgba(0, 0, 0, 0.5); /* White background */
-    border-radius: 50%; /* Round shape */
-    position: absolute;
-    top: 270px; /* Adjust as needed */
-    left: 35px; /* Center horizontally */
-    transform: translateX(-50%); /* Precise centering */
-    z-index: 3;
-}
-
-.overlay4 .arrow-circle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 57px; /* Circle size */
-    height: 57px; /* Circle size */
-    background-color: rgba(0, 0, 0, 0.5); /* White background */
-    border-radius: 50%; /* Round shape */
-    position: absolute;
-    top: 270px; /* Adjust as needed */
-    left: 35px; /* Center horizontally */
-    transform: translateX(-50%); /* Precise centering */
-    z-index: 3;
-}
-
-.overlay5 .arrow-circle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 57px; /* Circle size */
-    height: 57px; /* Circle size */
-    background-color: rgba(0, 0, 0, 0.5); /* White background */
-    border-radius: 50%; /* Round shape */
-    position: absolute;
-    top: 200px; /* Adjust as needed */
-    left: 35px; /* Center horizontally */
-    transform: translateX(-50%); /* Precise centering */
-    z-index: 3;
-}
-
-
-.overlay6 .arrow-circle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 57px; /* Circle size */
-    height: 57px; /* Circle size */
-    background-color: rgba(0, 0, 0, 0.5); /* White background */
-    border-radius: 50%; /* Round shape */
-    position: absolute;
-    top: 270px; /* Adjust as needed */
-    left: 35px; /* Center horizontally */
-    transform: translateX(-50%); /* Precise centering */
-    z-index: 3;
-}
-
-
-        body {
-            margin: 0;
-            overflow: hidden; /* Keep as per original, adjust if needed */
-        }
-
-        /* Common styles for clickable elements */
-        .clickable {
-            cursor: pointer; /* Pointer cursor for all clickable elements */
-            position: relative;
-            display: inline; /* Text itself is clickable, not surrounding space */
-            font-family: "High Tower Text", serif;
-            color: white;
-        }
-
-        /* Commented out the underline styles for .clickable to prevent extra lines */
-    
-        .clickable::after {
-            content: '';
-            position: absolute;
-            bottom: -5px; /* Adjust distance from text */
-            left: 0;
-            width: 0;
-            height: 1px; /* Thinner line */
-            background-color: white;
-            transform-origin: left; /* Origin for the animation */
-            transition: width 0.3s ease-in-out; /* Smooth animation for the underline */
-        }
-
-        .clickable:hover::after,
-        .clickable.clicked::after {
-            width: 100%; /* Expand underline on hover or when clicked */
-        }
-        
-
-        /* Top-left navigation bar */
-        .navbar {
-            position: fixed; /* Fixed position for consistent placement */
-            top: 27px;
-            left: 100px;
-            font-size: 13px;
-            z-index: 7; /* Below blur-overlay (z-index:8) and overlay (z-index:6) */
-        }
-
-        /* Top-right buttons container */
-        .top-right-buttons {
-            position: fixed; /* Fixed position for consistent placement */
-            top: 23px;
-            right: 35px;
+            background-color: #000;
             display: flex;
-            gap: 40px; /* Space between buttons */
-            align-items: center; /* Ensure vertical alignment */
-            z-index: 10; /* Ensure it's above videos */
-        }
-
-        /* Common button styles */
-        .button {
-            background-color: transparent; /* Transparent background */
-            border: none;
-            font-size: 12px;
-            cursor: pointer;
-            position: relative;
-            color: white;
-            display: flex; /* Flex layout for alignment */
-            align-items: center; /* Vertically center SVG and text */
-            font-family: "High Tower Text", serif;
-            padding: 8px 12px; /* Consistent padding */
-        }
-
-        /* Updated .button-text class */
-        .button-text {
-            position: relative; /* For positioning the ::after pseudo-element */
-            display: inline-block; /* Ensures the underline doesn't extend beyond the text */
-        }
-
-        /* Adjusted underline effect for .button-text */
-        .button .button-text::after {
-            content: '';
-            position: absolute;
-            bottom: -2px; /* Position the underline closer to the text */
-            left: 0;
-            width: 0;
-            height: 1px; /* Thicker line for better visibility */
-            background-color: white;
-            transform-origin: left; /* Origin for animation */
-            transition: width 0.3s ease-in-out; /* Smooth animation for the underline */
-        }
-
-        .button:hover .button-text::after,
-        .button.clicked .button-text::after {
-            width: 100%; /* Expand underline on hover or when clicked */
-        }
-
-        /* Specific styles for language-button icon */
-        .button.language-button .icon {
-            margin-left: 5px; /* Space between text and icon */
-            transition: transform 0.3s ease;
-        }
-
-        /* Adjust margin between text and icon if necessary */
-        .button.language-button .button-text {
-            margin-right: 5px; /* Space between text and SVG */
-        }
-
-        /* Top middle title */
-        .title {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%); /* Center align */
-            font-size: 22px;
-            font-weight: bold;
-            z-index: 10; /* Ensure it's above videos */
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            color: white;
-            cursor: pointer;
-        }
-
-        /* Language dropdown */
-        .language-container {
-            position: relative;
-            display: flex; /* Changed from inline-block to flex */
-            align-items: center; /* Vertically center the items */
-        }
-
-        /* Removed redundant .language-button styles as they are now handled by .button */
-
-        .language-dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background-color: transparent; /* Made transparent */
-            padding: 10px;
-            border-radius: 5px;
-            z-index: 11; /* Ensure dropdown is above other elements */
-        }
-
-        .language-dropdown .lang-button {
-            background: none;
-            border: none;
-            color: white;
-            text-align: left;
-            padding: 5px 10px;
-            cursor: pointer;
-            font-size: 14px;
-            font-family: "High Tower Text", serif;
-            opacity: 0;
-            transform: translateY(-20px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            /* Optional: Add text shadow for better readability */
-            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-        }
-
-        .language-dropdown.show .lang-button {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .language-container.open .icon {
-            transform: rotate(180deg);
-        }
-
-        .language-dropdown.show {
-            display: block;
-        }
-
-        /* Hamburger menu button */
-        .hamburger-menu {
-            position: fixed;
-            top: 30px;
-            left: 50px;
-            width: 30px;
-            height: 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 5px; /* Initial gap between lines */
-            cursor: pointer;
-            z-index: 10;
-            transition: gap 0.3s ease; /* Smooth transition for gap changes */
-        }
-
-        /* Removed justify-content and added transition to gap */
-
-        .hamburger-menu .line {
-            width: 100%;
-            height: 3px;
-            background-color: white;
-            transition: all 0.3s ease;
-        }
-
-        /* Added new hover effect to increase gap between lines */
-        .hamburger-menu:hover {
-            gap: 10px; /* Increased gap on hover */
-        }
-
-        .hamburger-menu.clicked .line1 {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .hamburger-menu.clicked .line2 {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-
-        /* Side menu */
-        .side-menu {
-            position: fixed;
-            top: 0;
-            left: -600px; /* Hidden initially */
-            width: 600px;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Fixed syntax for rgba */
-            color: white;
-            transition: all 0.5s ease;
-            z-index: 9;
-            padding: 80px 20px 20px 20px; /* Added top padding of 80px */
-            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
-        }
-
-        .side-menu ul {
-            list-style: none;
-            padding: 0;
-            /* Removed margin-top as padding is handled in .side-menu */
-        }
-
-        .side-menu ul li {
-            margin: 20px 0;
-        }
-
-        .side-menu ul li a {
-            position:relative;
-            top: -10px;
-            left:35px;
-            color: white;
-            text-decoration: none;
-            font-size: 38px;
-            transition: color 0.3s ease;
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
-
-        .side-menu ul li a:hover {
-            color: gray;
-        }
-
-        /* When menu is open */
-        .side-menu.open {
-            left: 0;
-        }
-
- 
-
-        /* Blur overlay */
-        .blur-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 600px; /* same as side menu width */
-            height: 100%;
-            backdrop-filter: blur(5px);
-            pointer-events: none; /* Allow clicks to pass through */
-            z-index: 8; /* Below side-menu */
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .blur-overlay.show {
-            opacity: 1;
-        }
-
-        /* Overlay for dimming and closing menu */
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease;
-            z-index: 7; /* Below blur-overlay and side-menu */
-        }
-
-        .overlay.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* Align SVG and text vertically within buttons */
-        .top-right-buttons .button {
-            display: flex;
+            justify-content: center;
             align-items: center;
+            color: #fff;
+            font-family: system-ui;
+            font-size: small;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            z-index: 1000; /*Ensure it stays on top */
+            opacity: 1; /* Start fully visible */
+            transition: opacity 2.5s ease-out; 
+        }
+        .black-screen.fade-out {
+            opacity: 0; 
+             pointer-events: none;/* Disable interactions after fade */
         }
 
-        /* --- Added CSS for Rotation Animations --- */
-
-        /* Define keyframes for clockwise rotation */
-        @keyframes rotateCW {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Define keyframes for anticlockwise rotation */
-        @keyframes rotateCCW {
-            from {
-                transform: rotate(360deg);
-            }
-            to {
-                transform: rotate(0deg);
-            }
-        }
-
-        /* Apply rotation-clockwise animation */
-        .rotate-clockwise {
-            animation: rotateCW 1.1s forwards;
-        }
-
-        /* Apply rotation-anticlockwise animation */
-        .rotate-anticlockwise {
-            animation: rotateCCW 1.1s forwards;
-        }
-
-        /* Ensure the transform origin is centered for smooth rotation */
+        
         .collections-icon {
-            transform-origin: center;
+            transition: transform 0.8s ease-in-out;
         }
 
+        .collections-icon:hover {
+            transform: rotate(360deg); /* Spin on hover */
+        }
+
+        /* Ensure button allows hover */
+        .button {
+            position: relative;
+            display: inline-block;
+        }
+
+        .button[aria-label="Collections"]:hover .collections-icon {
+            transform: rotate(360deg); /* Spin the icon on hover over the button */
+        }
+
+        .button[aria-label="Collections"] {
+            text-decoration: none; /* Remove underline */
+        }
+
+        .button[aria-label="Collections"]:link,
+        .button[aria-label="Collections"]:visited,
+        .button[aria-label="Collections"]:hover,
+        .button[aria-label="Collections"]:active {
+            text-decoration: none; /* Ensure no underline in any state */
+            color: white; 
+        }
     </style>
 </head>
+
 <body>
-    
-    <!-- Hamburger Menu Button -->
-    <div class="hamburger-menu" onclick="toggleMenu(this)">
-        <div class="line line1"></div>
-        <div class="line line2"></div>
-    </div>
+    <!-- Black screen overlay -->
+    <div class="black-screen">RICHARD MILLE</div>
 
-    <!-- Side Menu -->
-    <div class="side-menu">
-        <ul>
-            <li><a href="#">THE BRAND</a></li>
-            <li><a href="#">SAVOIR-FAIRE</a></li>
-            <li><a href="#">COLLECTIONS</a></li>
-            <li><a href="#">FRIENDS AND PARTNERS</a></li>
-            <li><a href="#">STORE LOCATOR</a></li>
-            <li><a href="#">EVENTS</a></li>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
 
-        </ul>
-    </div>
-
-
-    
-    <!-- Blur Overlay -->
-    <div class="blur-overlay"></div>
-
-    <!-- Overlay for Dimming and Closing Menu -->
-    <div class="overlay"></div>
-
-    <!-- Main Content Wrapper -->
+    <!-- Main Content -->
     <div class="main-content">
-        <!-- Top-left Navbar -->
-        <div class="navbar clickable" onclick="handleClick(this); toggleMenu(document.querySelector('.hamburger-menu'))">MENU</div>
-
-        <!-- Top-middle Title -->
-        <div class="title">RICHARD MILLE</div>
-
-        <!-- Top-right Buttons -->
-        <div class="top-right-buttons">
-            <!-- SEARCH Button -->
-            <button class="button" onclick="handleClick(this)">
-                <span class="button-text">SEARCH</span>
-            </button>
-            
-            <!-- ENGLISH Language Button with Added 'button' Class -->
-            <div class="language-container">
-                <button class="button language-button" onclick="toggleLanguageDropdown(event)">
-                    <span class="button-text">ENGLISH</span>
-                    <svg
-                        class="icon"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        width="16"
-                        height="16"
-                        fill="none"
-                        stroke="white"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        aria-hidden="true"
-                        focusable="false"
-                    >
-                        <path d="M6 9l6 6 6-6"></path>
-                    </svg>
-                </button>
-                <div class="language-dropdown">
-                    <button class="lang-button">Français</button>
-                    <button class="lang-button">Español</button>
-                    <button class="lang-button">Русский</button>
-                    <button class="lang-button">العربية</button>
-                    <button class="lang-button">日本語</button>
-                    <button class="lang-button">中文</button>
-                </div>
-            </div>
-
-                   <!-- COLLECTIONS Button -->
-        <button class="button" aria-label="Collections">
-            <span class="button-text">COLLECTIONS</span>
-            <svg class="collections-icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" style="margin-left: 8px;" aria-hidden="true" focusable="false">
-                <g id="boundary-dots">
-                    <circle cx="12" cy="3.8" r="1.2" fill="currentColor" />
-                    <circle cx="17.07" cy="6.93" r="1.2" fill="currentColor" />
-                    <circle cx="19.5" cy="12" r="1.2" fill="currentColor" />
-                    <circle cx="17.07" cy="17.07" r="1.2" fill="currentColor" />
-                    <circle cx="12" cy="20" r="1.2" fill="currentColor" />
-                    <circle cx="6.93" cy="17.07" r="1.2" fill="currentColor" />
-                    <circle cx="4.5" cy="12" r="1.2" fill="currentColor" />
-                    <circle cx="6.93" cy="6.93" r="1.2" fill="currentColor" />
-                </g>
-                <circle cx="12" cy="12" r="1.2" fill="currentColor" />
-            </svg>
-        </button>
-    </div>
-
         <!-- Video Containers -->
         <div class="video-container" id="video1">
             <video muted playsinline autoplay loop></video>
             <div class="video-overlay overlay1">
                 <h1>SAPPHIRE</h1>
                 <h2>A Material Beyond Compare</h2>
-                <div class="arrow-circle">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M6 9l6 6 6-6"></path>
-                    </svg>
-                </div>
             </div>
         </div>
-        
+
         <div class="video-container" id="video2">
             <video muted playsinline autoplay loop></video>
             <div class="video-overlay overlay2">
                 <h1>RM 032 ULTIMATE<br>EDITION</h1>
                 <h2>Deep Down Technicity</h2>
                 <h3>New Model</h3>
-                <div class="arrow-circle">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M6 9l6 6 6-6"></path>
-                    </svg>
-                </div>
             </div>
         </div>
-        
+
         <div class="video-container" id="video3">
             <video muted playsinline autoplay loop></video>
             <div class="video-overlay overlay3">
                 <h1>RM 65 01 MCLAREN W1</h1>
                 <h2>Extreme Machines</h2>
                 <h3>New Model</h3>
-                <div class="arrow-circle">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M6 9l6 6 6-6"></path>
-                    </svg>
-                </div>
             </div>
         </div>
-        
+
         <div class="video-container" id="video4">
             <video muted playsinline autoplay loop></video>
             <div class="video-overlay overlay4">
                 <h1>SHELLY-ANN FRASER-<br>PRYCE</h1>
                 <h2>The Unstoppable !</h2>
                 <h3>New Partner</h3>
-                <div class="arrow-circle">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M6 9l6 6 6-6"></path>
-                    </svg>
-                </div>
             </div>
         </div>
-        
+
         <div class="video-container" id="video5">
             <video muted playsinline autoplay loop></video>
             <div class="video-overlay overlay5">
                 <h1>LADIES' COLLECTION</h1>
                 <h2>Each Ladies Timepiece Complex And Intriguing As It<br>Is Breathtakingly Beautiful</h2>
                 <h3>Watches</h3>
-                <div class="arrow-circle">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M6 9l6 6 6-6"></path>
-                    </svg>
-                </div>
             </div>
         </div>
-        
+
         <div class="video-container" id="video6">
             <video muted playsinline autoplay loop></video>
             <div class="video-overlay overlay6">
                 <h1>RICHARD MILLE<br>UNIVERSE</h1>
                 <h2>The story Behind.</h2>
                 <h3>The Brand</h3>
-                <div class="arrow-circle">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M6 9l6 6 6-6"></path>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-    <style>
-        .footer {
-            background-color: #000; /* Black background */
-            color: #fff; /* White text */
-            padding: 20px;
-            font-family: Arial, sans-serif;
-        }
-    
-        .footer-main {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-    
-        .footer-section {
-            margin: 10px 20px;
-        }
-    
-        .footer-section h3 {
-            color: #fff;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-    
-        .footer-section ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-    
-        .footer-section ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 14px;
-        }
-    
-        .footer-section ul li a:hover {
-            text-decoration: underline;
-        }
-    
-        .footer-secondary {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-    
-        .footer-social h3 {
-            margin-bottom: 10px;
-        }
-    
-        .footer-social a img {
-            width: 24px;
-            height: 24px;
-            margin-right: 10px;
-        }
-    
-        .footer-info a {
-            display: block;
-            color: #fff;
-            text-decoration: none;
-            margin-bottom: 5px;
-        }
-    
-        .footer-info a:hover {
-            text-decoration: underline;
-        }
-    
-        .footer-languages {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-            border-top: 1px solid #444;
-            padding-top: 10px;
-        }
-    
-        .footer-languages span {
-            font-size: 14px;
-        }
-    
-        .language-options a {
-            color: #fff;
-            margin-left: 10px;
-            text-decoration: none;
-            font-size: 14px;
-        }
-    
-        .language-options a:hover {
-            text-decoration: underline;
-        }
-    </style>
-    
-    <div class="footer">
-        <div class="footer-main">
-            <div class="footer-section">
-                <h3>THE BRAND</h3>
-                <ul>
-                    <li><a href="#">Historical models</a></li>
-                    <li><a href="#">Pre-Owned</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>SAVOIR-FAIRE</h3>
-                <ul>
-                    <li><a href="#">Servicing</a></li>
-                    <li><a href="#">Book an appointment</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>COLLECTIONS</h3>
-            </div>
-            <div class="footer-section">
-                <h3>FRIENDS & PARTNERS</h3>
-            </div>
-            <div class="footer-section">
-                <h3>STORE LOCATOR</h3>
-            </div>
-            <div class="footer-section">
-                <h3>EVENTS</h3>
-            </div>
-        </div>
-    
-        <div class="footer-secondary">
-            <div class="footer-social">
-                <h3>Follow us</h3>
-                <a href="#"><img src="data:image/jpeg;base64,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" alt="Facebook"></a>
-                <a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAZlBMVEVHqej///9Cp+g8pedNrOn3+/76/f7x+f3t9/1Iqujg8ftgtOtsuezP6PlZsepst+vX7PrM5fi83vaEwu58wO6v1/Tn8/yg0PKYz/KRyPDc7/vE4vdcsuqTzPGq1fSGxvB1v+7C3/bHvkHaAAAFWElEQVR4nO3c14KqOhgFYP1DLwFBRLq+/0sesMxYEAnCTpyzvqt9Mcxk7YR0Xa0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4J+jC9nlWAaRrZVu0Cm5/fdSku3GaZGb65buFHXjab0ZvzU4rbZJaKxvOVH2nJEocGWU72PMO+7WT8xN89BWiafhVlIZzwWY+JhWO8/5Olbk/v5OYloaGmEpr53Sdj/pj5O7MfoDtvItu/wU44nV/lwq8UVkm3XDxB+jw4sKvDTV6jR88Or8moauzCq01uut8N8/PTbE2JfbOr/mzSRWIUVdCUQjkvcmYBtR//13pC1T+FFFdcOuCDuxiMQHm+ijMJBZhc25MhyxiJFIQOvyu+XEpPRSjF08vgCset2LPju/Au2g4UmJaP/Uhjm6R6UyH0rUE5CIuYkjZ1rjbn7LUo2MyBKBKswDxliZOsa6kVKFFIQ3pUn6Z81Pz4yvQiNyg6o4zcujCYPuDMi7K63vjXkm1fvj9DCda3X7kgYM8u67fadnYfBIK0YH/CVtUvNQh+1/evKuKG+ma/2cg6wR8f49PMkbNlgaykSGiktAeWsncv2n4pgRH+oU7Fo44O7wr/L00PpmJ1Y1sN3S+8RwQIkLi7YS+2vEabRXIctN7xOvhXI3aSgz+8vlx7w3I5XP7XqInkjefnvqTG8yZoH9XLjLYmQ0mYv7i+Pr0oVJ/NRYRRMKTOgX8rKZnlh+7dHd6NHX+6qdcGUP14mxC5ODzX6rkotNaRRI+H4EN3Rrs2+rknUnE6Ql35ZwxUY2u12RNh63V+n7H1UsIfHxa4WWOfTePjFUSCi4KSFGeBdvGST2aonYSVtUXGmn9SAXnmuO5cjZfvpF26JpxztaLKIvddbdJYxNPa85Y3Yt1N2MVnC5Aa/HD1ax3y4TUeZ+/jnh64n3PGrZHY34ak+MLvPQ6cxerBc9ETzxWQKly432a7kno9eEU/YGxzvasgO2zXTJF9GQ39G0lVgJzaTFWHJOYx68WQF/xJH/Gq66U+BlZjOdjQoB24hTTlpGMVI5J2qPqHx7r2IiU/bC4orFCyUMFQl4c11hZtOuky1CEz9PGkP2uuKWyMn1aIUa/cwFNfPP3qRv0dxjXjHz5MZRK2B3Y7vyZ22qlWoJu4ExK+YbGncSbwX3OZ1KMKYFzVwznFSBhdMNCpJkn2X7OspnaqnSN0ofaXMvE2vZiR4NH5SKk3pptp8mdrT7hq7A8f0jyuYcKnyuXsKVPeMyUVdi9+LRnMvESHaYfrSdK6A56iauBFTNlFCxKfeteTbAE6VWTffsdIZRMVRp4fss+3iZKP/kfhh50Wct1cxkR3iHtOaT2Y1eq91GT4jHxeR6PKo6UNwhsnkTTRr//a8I2OlWw4xXPZ9jHhR+1cfxSctEA+Y9d4rVRYHwCb+SC4pXiKfC11A2ShwWjkN2thFdLRqRYntrA4g1vvDkzai/pRclRo0jPhoa1Td8twd138NymDRp26nax9ANWyuDicO8HqlagfzgBa7rBp63jbM0CqdN1Yxc/t21V8pqk/u+H+a5NX09YSXq7Yz+ILv5eKe7iNXuQ4lnH90XyjNVu5gftOLN5Du0u6z/A3yqIdpOqse8+Z4v9iLmRZbQLE03C2/489CqIVbuN87IkPrOT8vvytdpx3wvPYZvR3wrPKbe6mua57222G6cRv6raanh+FEau9/z9vVpa1IrvbiqoyLcmfo5qm45YRHVWey52p/4bsTzJJVz9/xdiC3X5Vyz/9w3P9Id2aUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+L/5DzKHRZVq7UWdAAAAAElFTkSuQmCC" alt="Twitter"></a>
-                <a href="#"><img src="data:image/jpeg;base64,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" alt="Instagram"></a>
-                <a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAkFBMVEX/AAD/////6Oj/Z2f/Tk7/8PD/w8P/PT3/KSn/vb3/MTH/ubn/5eX/JCT/Pz//UFD/z8//2dn/+vr/FBT/OTn/R0f/4OD/qqr/DQ3/r6//s7P/8vL/np7/kpL/e3v/lpb/bGz/0tL/goL/2tr/iIj/dXX/nZ3/Wlr/YGD/WFj/Jib/h4f/f3//pKT/Li7/amo+8bPAAAAEVklEQVR4nO2ca1fiMBCGI5fe6A3aglBaKLbFVav//99t2GURRHFPmDQlvs8XPerx5AE6mUySYQwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANh9FHmeZ1mvjuPEsen7SZIM9gT/vuE/830zjvnfvFoW//soulc98K+ILMdPgm2/yjeb5zLLVnXTzOeL0cg2jDAMi4fx1HV76XBHmu6/9lx3Oh4X/PeGYY9Gi/m8aepVlpXPm01e9bdB4jtWpFgsDvp5uWxmC9vgGu5wckfFZOg+FKFhL2bNssz7Qdy+qlnNuBap1SVbLjur/Pb0oiycDqWbfWQ4LTKvHcFVKv+N+5xJumrB7639d++YtJLs582V+u2YP8kUdEaq/Th2LE/Qs1Xb/cGWF3DUf0T/spAluFZtdmAtyVBtFD0mlSPYqPY6YiZD0OrOW8gTnFcJhrWqTOYzJrUEw1C11QkFvWAyVS11wnRAbvjSpceQR9MNueFMtdMH5uSG3UjY3rGpBeNuBZq7u9AkNnzsVqDhoeaR2DBPVSt9IM2JDTPVRmdkxIZL1UJnLGkF77s2WfDkm7ZCbnWhfHHKyCI1NLs2WZBPF4OxaqEzxrSZ6dZVLXSGuyU1fBOeDlO7INQ6/sd9UsNKeCDuo5/1CMXeoa1+vwiPo8df6kDKXEOb1GyEx7EzZNEvCbGYdoUonrT19o9LRR6rSkrB+5XwOHqHgLAkfhxXlElNJJ6Wvhuy2CathCwpt7498VDROw7qa4OwJDkjNVzQGLKn54LMcEG5BWWJV2l6HyZmv6R6HG3K1PvVIDPkWXxNY2hQVvYd8ens3JCqrBU6hIZxQWrIWP/h+pBTkBqKL54+N2RRfXXxbky5n2+KD+cLQ8aS+ZUhZ0q5BPbFB/OlIZ8dR1d9VF3KY2CJeDJywZB5+TUhZ5hQGoq/2JcMeZDeiH86UkrDgSzDaxLCCWWhZiAs+K0hD6uh4Ot3M4Y85IyFHCkNA7mGLMoKAcfghgzFDnXekqH691D/5/AHxFLt50P9cxr981JJawu7O2sL/deH+q/x9a/T6F9r079eqn/NW/99i0j7vSf99w/13wNmpfA4bmQf/wecxdD/PI3+Z6L62p9r0/9sov7nS/U/I6z/OW/9z+rrf9/iB9yZ0f/ek/5317p3/5C8/4f2d0g7dw+YvquC/ne59b+Pr39PBbbSvi/GU5ceRCm9TTrVn6aRIdilHkNDOYKsr1rswFqSof69vpjXjZW+xH5tHem5R7n3e8YVV7yomMlu8bmVU8D+X9K1ZL8duvcvZfsetK1bDqdh1mI7YbNqWu4j3FTUTYW+Z9cLuipryb2g67JS0gv6VNVyzF0/73X+snkuy2xVLw/9vI0wLMYX+3kbh37ey30/75d8vevnbSrv5/01pz3ZY/+4KXtw3JLdj2+jJzsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoE1+AzsCeD1TvGr9AAAAAElFTkSuQmCC" alt="YouTube"></a>
-                <a href="#"><img src="data:image/png;base64,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" alt="Weibo"></a>
-            </div>
-            <div class="footer-info">
-                <a href="#">Contact</a>
-                <a href="#">Accessibility</a>
-                <a href="#">Most viewed pages</a>
-                <a href="#">Legals</a>
-                <a href="#">Sitemap</a>
-                <a href="#">Credits</a>
-            </div>
-        </div>
-    
-        <div class="footer-languages">
-            <span>© Richard Mille 2025</span>
-            <div class="language-options">
-                <a href="#">EN</a>
-                <a href="#">FR</a>
-                <a href="#">ES</a>
-                <a href="#">RU</a>
-                <a href="#">AR</a>
-                <a href="#">JA</a>
-                <a href="#">CN</a>
             </div>
         </div>
     </div>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
 
     <script>
-        
-    
-        const footer = document.querySelector('.footer'); // Select the footer element
-        const videoSources = [
-            "https://video.richardmille.com/mobile/crystalclear_header.mp4",
-            "https://video.richardmille.com/mobile/RM-032_packshot_header-2.mp4",
-            "https://video.richardmille.com/desktop/RM-65-01McL_header.mp4",
-            "https://video.richardmille.com/desktop/Shelly_Ann_Fraser_16-9_1.mp4",
-            "https://video.richardmille.com/desktop/header-collection-women-04_1.mp4",
-            "https://video.richardmille.com/desktop/the-brand-history-rm-homepage.mp4"
-        ];
-    
-        const videos = document.querySelectorAll('video');
-        const videoContainers = document.querySelectorAll('.video-container');
-        const totalVideos = videos.length;
-        let currentVideoIndex = 0;
-        let isScrolling = false;
-    
-        // Load video sources
-        videos.forEach((video, index) => {
-            video.src = videoSources[index];
-            video.load();
-        });
-    
-        /**
-         * Function to scroll to a specific video container or the footer
-         * @param {number} index - Index of the container to scroll to, or to the footer if beyond the last video
-         */
-        function scrollToVideo(index) {
-            isScrolling = true;
-            if (index >= totalVideos) {
-                footer.scrollIntoView({ behavior: "smooth" });
-            } else {
-                videoContainers[index].scrollIntoView({ behavior: "smooth" });
-            }
-            setTimeout(() => { isScrolling = false; }, 1000);
-        }
-    
-        /**
-         * Handle scrolling behavior
-         */
-        function handleScroll(event) {
-            if (isScrolling) return;
-    
-            if (event.deltaY > 0) {
-                if (currentVideoIndex < totalVideos) {
-                    currentVideoIndex++;
-                    scrollToVideo(currentVideoIndex);
-                }
-            } else {
-                if (currentVideoIndex > 0) {
-                    currentVideoIndex--;
-                    scrollToVideo(currentVideoIndex);
-                }
-            }
-        }
-    
-        // Automatically change video every 8 seconds
-        setInterval(() => {
-            if (!isScrolling && currentVideoIndex < totalVideos - 1) {
-                currentVideoIndex++;
-                scrollToVideo(currentVideoIndex);
-            }
-        }, 8000);
-    
-        // Attach the scroll event listener
-        window.addEventListener('wheel', handleScroll);
-    
-        // Initialize the first video
-        scrollToVideo(currentVideoIndex);
-    
-        // Click and Dropdown Toggle Functions
-    
-        /**
-         * Handle click events to toggle the underline.
-         * @param {HTMLElement} element - The clicked element.
-         */
-        function handleClick(element) {
-            if (element.classList.contains('clicked')) {
-                element.classList.remove('clicked');
-            } else {
-                document.querySelectorAll('.button, .clickable').forEach(btn => btn.classList.remove('clicked'));
-                element.classList.add('clicked');
-            }
-        }
-    
-        /**
-         * Toggle the language dropdown visibility with animation.
-         * @param {Event} event - The click event.
-         */
-        function toggleLanguageDropdown(event) {
-            event.stopPropagation();
-            const container = event.currentTarget.parentElement;
-            const dropdown = container.querySelector('.language-dropdown');
-            const buttons = dropdown.querySelectorAll('.lang-button');
-            const languageButton = container.querySelector('.language-button');
-    
-            container.classList.toggle('open');
-    
-            if (container.classList.contains('open')) {
-                dropdown.classList.add('show');
-                languageButton.classList.add('clicked');
-                buttons.forEach((button, index) => {
-                    setTimeout(() => {
-                        button.style.opacity = '1';
-                        button.style.transform = 'translateY(0)';
-                    }, index * 100);
-                });
-            } else {
-                buttons.forEach((button, index) => {
-                    setTimeout(() => {
-                        button.style.opacity = '0';
-                        button.style.transform = 'translateY(-20px)';
-                    }, index * 100);
-                    if (index === buttons.length - 1) {
-                        setTimeout(() => {
-                            dropdown.classList.remove('show');
-                            languageButton.classList.remove('clicked');
-                        }, (buttons.length + 1) * 100);
-                    }
-                });
-            }
-        }
-    
-        /**
-         * Toggle the side menu visibility and button state
-         * @param {HTMLElement} button - The hamburger menu button
-         */
-        function toggleMenu(button) {
-            const sideMenu = document.querySelector('.side-menu');
-            const blurOverlay = document.querySelector('.blur-overlay');
-            const overlay = document.querySelector('.overlay');
-    
-            button.classList.toggle('clicked');
-            sideMenu.classList.toggle('open');
-            blurOverlay.classList.toggle('show');
-            overlay.classList.toggle('show');
-    
-            if (!sideMenu.classList.contains('open')) {
-                const menuButton = document.querySelector('.navbar.clickable');
-                if (menuButton) {
-                    menuButton.classList.remove('clicked');
-                }
-            }
-        }
-    
-        // Handle "COLLECTIONS" Button Click and Icon Rotation
-document.addEventListener('DOMContentLoaded', () => {
-    const collectionsButton = document.querySelector('.button[aria-label="Collections"]');
-    const collectionsIcon = collectionsButton.querySelector('.collections-icon');
-
-    // Add hover animations for the icon
-    collectionsButton.addEventListener('mouseenter', () => {
-        collectionsIcon.classList.remove('rotate-anticlockwise');
-        collectionsIcon.classList.add('rotate-clockwise');
-    });
-
-    collectionsButton.addEventListener('mouseleave', () => {
-        collectionsIcon.classList.remove('rotate-clockwise');
-        collectionsIcon.classList.add('rotate-anticlockwise');
-    });
-
-    collectionsIcon.addEventListener('animationend', () => {
-        collectionsIcon.classList.remove('rotate-clockwise');
-        collectionsIcon.classList.remove('rotate-anticlockwise');
-    });
-
-    // Redirect to new page when the button or icon is clicked
-    collectionsButton.addEventListener('click', () => {
-        // Smoothly update the title before redirecting
-        document.title = "COLLECTIONS | Luxury Watches . RICHARD MILLE";
-
-        // Simulate a slight delay to let the title update visually before redirection
+        // Fade out black screen and show main content after 2 seconds
         setTimeout(() => {
-            window.location.href = 'https://your-new-collections-page-url.com'; // Replace with your target URL
-        }, 200);
-    });
-});document.addEventListener('DOMContentLoaded', () => {
-    const collectionsButton = document.querySelector('.button[aria-label="Collections"]');
-    const collectionsIcon = collectionsButton.querySelector('.collections-icon');
+            const blackScreen = document.querySelector('.black-screen');
+            blackScreen.classList.add('fade-out');
+            document.body.classList.add('loaded');
+            setTimeout(() => {
+                blackScreen.style.display = 'none'; // Remove from layout after fade
+            }, 1000); // Match the transition duration
+        }, 2000);
 
-    // Add hover animations for the icon
-    collectionsButton.addEventListener('mouseenter', () => {
-        collectionsIcon.classList.remove('rotate-anticlockwise');
-        collectionsIcon.classList.add('rotate-clockwise');
-    });
+        // Load header and footer
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    console.log('Header loaded:', data); 
+                })
+                .catch(error => console.error('Error loading header:', error));
 
-    collectionsButton.addEventListener('mouseleave', () => {
-        collectionsIcon.classList.remove('rotate-clockwise');
-        collectionsIcon.classList.add('rotate-anticlockwise');
-    });
-
-    collectionsIcon.addEventListener('animationend', () => {
-        collectionsIcon.classList.remove('rotate-clockwise');
-        collectionsIcon.classList.remove('rotate-anticlockwise');
-    });
-
-    // Redirect to new page when the button or icon is clicked
-    collectionsButton.addEventListener('click', () => {
-        // Smoothly update the title before redirecting
-        document.title = "COLLECTIONS | Luxury Watches . RICHARD MILLE";
-
-        // Simulate a slight delay to let the title update visually before redirection
-        setTimeout(() => {
-            window.open('2.html', '_self'); // Opens the page in the same tab
-        }, 200);
-    });
-});
-
-
-    
-        // Optional: Close language dropdown and side menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const languageContainers = document.querySelectorAll('.language-container');
-            languageContainers.forEach(container => {
-                if (!container.contains(event.target)) {
-                    container.classList.remove('open');
-                    const dropdown = container.querySelector('.language-dropdown');
-                    const languageButton = container.querySelector('.language-button');
-                    dropdown.classList.remove('show');
-                    languageButton.classList.remove('clicked');
-                    dropdown.querySelectorAll('.lang-button').forEach(button => {
-                        button.style.opacity = '0';
-                        button.style.transform = 'translateY(-20px)';
-                    });
-                }
-            });
-    
-            const sideMenu = document.querySelector('.side-menu');
-            const hamburger = document.querySelector('.hamburger-menu');
-            const overlay = document.querySelector('.overlay');
-            if (sideMenu.classList.contains('open') && !sideMenu.contains(event.target) && !hamburger.contains(event.target)) {
-                toggleMenu(hamburger);
-            }
-        });
-    
-        document.querySelector('.overlay').addEventListener('click', function() {
-            const hamburger = document.querySelector('.hamburger-menu');
-            toggleMenu(hamburger);
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                    console.log('Footer loaded:', data); 
+                    footerLoaded = true;
+                      if (headerLoaded) loadContent();
+                })
+                .catch(error => console.error('Error loading footer:', error));
         });
     </script>
-    
 </body>
 </html>
